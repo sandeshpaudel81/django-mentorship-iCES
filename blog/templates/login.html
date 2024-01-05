@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h3>Login to Sandesh's Blog</h3>
+                        <form action="/login/" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary mt-3">Login</button>
+                        </form>
+                        <p>Don't have an account? <a href="/register">Register</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{% static 'images/login_image.png' %}" width="200px"/>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
